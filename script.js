@@ -1,39 +1,44 @@
-// Seleção de elementos do DOM
-const btnTema = document.getElementById('toggle-dark-mode');
-const formQuiz = document.getElementById('quiz-form');
-const divResultado = document.getElementById('quiz-resultado');
+// Aguarda o carregamento do DOM para evitar erros de execução
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Seleção de elementos do DOM
+    const botaoTema = document.getElementById('toggle-dark-mode');
+    const formularioQuiz = document.getElementById('quiz-form');
+    const painelFeedback = document.getElementById('quiz-feedback');
 
-// 1. Funcionalidade de Acessibilidade: Modo Escuro
-btnTema.addEventListener('click', () => {
-    const temaAtual = document.body.getAttribute('data-theme');
-    
-    if (temaAtual === 'dark') {
-        document.body.removeAttribute('data-theme');
-    } else {
-        document.body.setAttribute('data-theme', 'dark');
-    }
-});
+    // 1. Controle de Acessibilidade: Alternância de Tema (Modo Escuro)
+    botaoTema.addEventListener('click', () => {
+        const modoAtivo = document.body.getAttribute('data-theme') === 'dark';
+        
+        if (modoAtivo) {
+            document.body.removeAttribute('data-theme');
+        } else {
+            document.body.setAttribute('data-theme', 'dark');
+        }
+    });
 
-// 2. Funcionalidade do Quiz: Validação e Feedback dinâmico
-formQuiz.addEventListener('submit', (evento) => {
-    evento.preventDefault(); // Evita que a página recarregue
-    
-    // Captura a opção selecionada usando FormData
-    const dadosForm = new FormData(formQuiz);
-    const respostaUsuario = dadosForm.get('pergunta1');
-    
-    // Processa a informação antes de exibir na tela (Uso de variáveis)
-    let mensagemFeedback = "";
-    
-    if (respostaUsuario === 'correta') {
-        mensagemFeedback = "🎉 Correto! Falhas digitais na renderização e movimentos não naturais (como piscar) são ótimos indicadores.";
-        divResultado.className = "resultado-sucesso";
-    } else {
-        mensagemFeedback = "❌ Incorreto. Tente novamente! Lembre-se de observar atentamente os detalhes físicos do rosto.";
-        divResultado.className = ""; // Remove estilo de sucesso se errar
-    }
-    
-    // Exibe o resultado manipulando o DOM
-    divResultado.textContent = mensagemFeedback;
-    divResultado.classList.remove('hidden');
+    // 2. Validação Interativa do Formulário de Conscientização
+    formularioQuiz.addEventListener('submit', (evento) => {
+        evento.preventDefault(); // Impede o recarregamento padrão da página
+
+        // Captura do dado selecionado pelo usuário
+        const dadosFormulario = new FormData(formularioQuiz);
+        const respostaSelecionada = dadosFormulario.get('combate');
+
+        // Processamento da resposta utilizando variáveis locais (Rubrica A)
+        let mensagemInfo = "";
+        let classeEstilo = "";
+
+        if (respostaSelecionada === 'correto') {
+            mensagemInfo = "🎉 Excelente! A checagem em fontes confiáveis e a interrupção do ciclo de compartilhamento são as melhores armas contra a desinformação por IA.";
+            classeEstilo = "sucesso";
+        } else {
+            mensagemInfo = "❌ Cuidado! Repassar mídias sem validação prévia ajuda a espalhar mentiras automatizadas, mesmo que sua intenção seja alertar.";
+            classeEstilo = "erro";
+        }
+
+        // Modificação dinâmica do conteúdo e estilo no DOM
+        painelFeedback.textContent = mensagemInfo;
+        painelFeedback.className = classeEstilo; // Aplica a estilização de sucesso ou erro
+    });
 });
