@@ -3,47 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consciência Digital: IA e Desinformação</title>
+    <title>Consciência Digital: IA e Deepfakes</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
-        <h1>Cidadania Digital & IA</h1>
-        <p>Desmascarando Deepfakes e Combatendo a Desinformação</p>
-        <button id="toggle-dark-mode" aria-label="Alternar modo escuro">🌓 Alternar Tema</button>
+        <div class="header-container">
+            <h1>Cidadania Digital & IA</h1>
+            <p>Guia Comunitário contra a Desinformação Automatizada</p>
+            <button id="toggle-dark-mode" aria-label="Alternar modo escuro">🌓 Alternar Tema</button>
+        </div>
     </header>
 
     <main>
-        <section id="sobre">
-            <h2>O que são Deepfakes?</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam a aparência e a voz de pessoas reais de forma hiper-realista. Quando usados de má-fé, podem espalhar desinformação automatizada e prejudicar a sociedade.</p>
+        <section id="contexto">
+            <h2>O Impacto das Deepfakes</h2>
+            <p>As <strong>deepfakes</strong> são mídias sintéticas geradas por algoritmos de Inteligência Artificial que conseguem substituir rostos e vozes com precisão assustadora. Quando utilizadas para espalhar desinformação, essas ferramentas ameaçam a integridade social, manipulam debates públicos e quebram a confiança nas mídias digitais.</p>
+        </section>
+
+        <section id="como-identificar">
+            <h2>Como identificar mídias manipuladas?</h2>
+            <ul>
+                <li><strong>Piscadas inconsistentes:</strong> Rostos gerados por IA costumam piscar menos ou de forma artificial.</li>
+                <li><strong>Erros de iluminação:</strong> Sombras e reflexos nos olhos que não condizem com o ambiente do vídeo.</li>
+                <li><strong>Áudio dessincronizado:</strong> Movimentos dos lábios ligeiramente desalinhados com a fala emitida.</li>
+            </ul>
         </section>
 
         <section id="quiz">
-            <h2>Quiz: Você sabe identificar um Deepfake?</h2>
+            <h2>Quiz Interativo: Teste seus Olhos</h2>
+            <p>Se você receber um vídeo bombástico de um político ou celebridade cometendo um ato absurdo em uma rede social nova, qual deve ser sua primeira reação?</p>
+            
             <form id="quiz-form">
-                <div class="questoes">
-                    <p>1. Qual destes elementos costuma denunciar um vídeo deepfake?</p>
-                    
+                <div class="opcao-grupo">
                     <label>
-                        <input type="radio" name="pergunta1" value="correta" required>
-                        Piscadas de olhos não naturais ou falhas nas bordas do rosto.
-                    </label>
-                    
-                    <label>
-                        <input type="radio" name="pergunta1" value="errada">
-                        A resolução do vídeo estar em alta definição (1080p ou 4K).
+                        <input type="radio" name="combate" value="errado" required>
+                        Compartilhar imediatamente nos grupos de família para alertar a todos antes que o vídeo seja derrubado.
                     </label>
                 </div>
-                <button type="submit">Verificar Resposta</button>
+                
+                <div class="opcao-grupo">
+                    <label>
+                        <input type="radio" name="combate" value="correto">
+                        Não compartilhar, desconfiar do tom alarmista e checar se portais de jornalismo confiáveis confirmaram o fato.
+                    </label>
+                </div>
+
+                <button type="submit" id="btn-enviar">Verificar Resposta</button>
             </form>
-            <div id="quiz-resultado" class="hidden"></div>
+
+            <div id="quiz-feedback" class="hidden"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Projeto de Cidadania Digital. Desenvolvido para fins educacionais.</p>
+        <p>&copy; 2026 Portal Cidadania Digital. Desenvolvido para fins educacionais e de conscientização social.</p>
     </footer>
 
     <script src="js/script.js"></script>
