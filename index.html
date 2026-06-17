@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consciência Digital: IA e Deepfakes</title>
+    <title>Cidadania Digital e IA</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,54 +11,54 @@
     <header>
         <div class="header-container">
             <h1>Cidadania Digital & IA</h1>
-            <p>Guia Comunitário contra a Desinformação Automatizada</p>
+            <p>Conscientização sobre Deepfakes e Desinformação</p>
             <button id="toggle-dark-mode" aria-label="Alternar modo escuro">🌓 Alternar Tema</button>
         </div>
     </header>
 
     <main>
-        <section id="contexto">
+        <section id="sobre">
             <h2>O Impacto das Deepfakes</h2>
-            <p>As <strong>deepfakes</strong> são mídias sintéticas geradas por algoritmos de Inteligência Artificial que conseguem substituir rostos e vozes com precisão assustadora. Quando utilizadas para espalhar desinformação, essas ferramentas ameaçam a integridade social, manipulam debates públicos e quebram a confiança nas mídias digitais.</p>
+            <p>As <strong>deepfakes</strong> utilizam Inteligência Artificial hiper-realista para adulterar vídeos e vozes. Quando usadas para espalhar desinformação automatizada, podem arruinar reputações e manipular a opinião pública. Identificá-las é um dever da cidadania digital.</p>
         </section>
 
-        <section id="como-identificar">
-            <h2>Como identificar mídias manipuladas?</h2>
+        <section id="dicas">
+            <h2>Como Identificar Mídias Manipuladas?</h2>
             <ul>
-                <li><strong>Piscadas inconsistentes:</strong> Rostos gerados por IA costumam piscar menos ou de forma artificial.</li>
-                <li><strong>Erros de iluminação:</strong> Sombras e reflexos nos olhos que não condizem com o ambiente do vídeo.</li>
-                <li><strong>Áudio dessincronizado:</strong> Movimentos dos lábios ligeiramente desalinhados com a fala emitida.</li>
+                <li><strong>Piscar de olhos:</strong> Rostos artificiais costumam piscar de forma irregular ou raramente piscam.</li>
+                <li><strong>Iluminação e Sombras:</strong> Falhas ao redor dos olhos e contornos do rosto que não batem com a luz do ambiente.</li>
+                <li><strong>Sincronia labial:</strong> Movimentos da boca ligeiramente desalinhados com o som da fala.</li>
             </ul>
         </section>
 
         <section id="quiz">
-            <h2>Quiz Interativo: Teste seus Olhos</h2>
-            <p>Se você receber um vídeo bombástico de um político ou celebridade cometendo um ato absurdo em uma rede social nova, qual deve ser sua primeira reação?</p>
+            <h2>Quiz Anti-Desinformação</h2>
+            <p class="pergunta-texto">Se você receber um vídeo bombástico ou polêmico de uma figura pública em uma rede social, o que deve fazer primeiro?</p>
             
             <form id="quiz-form">
                 <div class="opcao-grupo">
                     <label>
-                        <input type="radio" name="combate" value="errado" required>
-                        Compartilhar imediatamente nos grupos de família para alertar a todos antes que o vídeo seja derrubado.
+                        <input type="radio" name="resposta" value="errada" required>
+                        <span>Compartilhar imediatamente para alertar seus amigos e familiares o mais rápido possível.</span>
                     </label>
                 </div>
                 
                 <div class="opcao-grupo">
                     <label>
-                        <input type="radio" name="combate" value="correto">
-                        Não compartilhar, desconfiar do tom alarmista e checar se portais de jornalismo confiáveis confirmaram o fato.
+                        <input type="radio" name="resposta" value="correta">
+                        <span>Interromper o compartilhamento e checar o fato em agências de notícias ou canais oficiais confiáveis.</span>
                     </label>
                 </div>
 
                 <button type="submit" id="btn-enviar">Verificar Resposta</button>
             </form>
 
-            <div id="quiz-feedback" class="hidden"></div>
+            <div id="quiz-resultado" class="hidden"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Portal Cidadania Digital. Desenvolvido para fins educacionais e de conscientização social.</p>
+        <p>&copy; 2026 - Desenvolvido para o Projeto de Cidadania Digital (Ensino Médio).</p>
     </footer>
 
     <script src="js/script.js"></script>
