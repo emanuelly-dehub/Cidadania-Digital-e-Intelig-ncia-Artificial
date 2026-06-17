@@ -1,44 +1,45 @@
-// Aguarda o carregamento do DOM para evitar erros de execução
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Seleção de elementos do DOM
-    const botaoTema = document.getElementById('toggle-dark-mode');
-    const formularioQuiz = document.getElementById('quiz-form');
-    const painelFeedback = document.getElementById('quiz-feedback');
+    // Seleção Limpa de Elementos
+    const btnTema = document.getElementById('toggle-dark-mode');
+    const formQuiz = document.getElementById('quiz-form');
+    const containerResultado = document.getElementById('quiz-resultado');
 
-    // 1. Controle de Acessibilidade: Alternância de Tema (Modo Escuro)
-    botaoTema.addEventListener('click', () => {
-        const modoAtivo = document.body.getAttribute('data-theme') === 'dark';
-        
-        if (modoAtivo) {
+    // 1. Alternador de Acessibilidade (Tema Escuro)
+    btnTema.addEventListener('click', () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        if (isDark) {
             document.body.removeAttribute('data-theme');
         } else {
             document.body.setAttribute('data-theme', 'dark');
         }
     });
 
-    // 2. Validação Interativa do Formulário de Conscientização
-    formularioQuiz.addEventListener('submit', (evento) => {
-        evento.preventDefault(); // Impede o recarregamento padrão da página
+    // 2. Validador do Quiz com Variáveis de Processamento
+    formQuiz.addEventListener('submit', (evento) => {
+        evento.preventDefault();
 
-        // Captura do dado selecionado pelo usuário
-        const dadosFormulario = new FormData(formularioQuiz);
-        const respostaSelecionada = dadosFormulario.get('combate');
+        const dados = new FormData(formQuiz);
+        const respostaUsuario = dados.get('resposta');
 
-        // Processamento da resposta utilizando variáveis locais (Rubrica A)
-        let mensagemInfo = "";
+        // Reset de classes utilitárias para evitar conflitos de cliques seguidos
+        containerResultado.className = 'hidden';
+
+        let mensagemFeedback = "";
         let classeEstilo = "";
 
-        if (respostaSelecionada === 'correto') {
-            mensagemInfo = "🎉 Excelente! A checagem em fontes confiáveis e a interrupção do ciclo de compartilhamento são as melhores armas contra a desinformação por IA.";
-            classeEstilo = "sucesso";
+        // Processamento lógico antes da exibição
+        if (respostaUsuario === 'correta') {
+            mensagemInfo = "🎉 Resposta Correta! Interromper o compartilhamento impulsivo e validar em portais de jornalismo sérios impede que a desinformação por IA se espalhe.";
+            classeEstilo = "resultado-sucesso";
         } else {
-            mensagemInfo = "❌ Cuidado! Repassar mídias sem validação prévia ajuda a espalhar mentiras automatizadas, mesmo que sua intenção seja alertar.";
-            classeEstilo = "erro";
+            mensagemInfo = "❌ Alerta de Risco! Compartilhar conteúdos alarmistas sem checar ajuda a espalhar mentiras estruturadas, mesmo que sua intenção inicial seja boa.";
+            classeEstilo = "resultado-erro";
         }
 
-        // Modificação dinâmica do conteúdo e estilo no DOM
-        painelFeedback.textContent = mensagemInfo;
-        painelFeedback.className = classeEstilo; // Aplica a estilização de sucesso ou erro
+        // Atualização e manipulação limpa do DOM
+        containerResultado.textContent = mensagemInfo;
+        containerResultado.classList.add(classeEstilo);
+        containerResultado.classList.remove('hidden');
     });
 });
