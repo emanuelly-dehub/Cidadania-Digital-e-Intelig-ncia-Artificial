@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciência Digital: IA e Desinformação</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Cidadania Digital & IA</h1>
+        <p>Desmascarando Deepfakes e Combatendo a Desinformação</p>
+        <button id="toggle-dark-mode" aria-label="Alternar modo escuro">🌓 Alternar Tema</button>
+    </header>
+
+    <main>
+        <section id="sobre">
+            <h2>O que são Deepfakes?</h2>
+            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam a aparência e a voz de pessoas reais de forma hiper-realista. Quando usados de má-fé, podem espalhar desinformação automatizada e prejudicar a sociedade.</p>
+        </section>
+
+        <section id="quiz">
+            <h2>Quiz: Você sabe identificar um Deepfake?</h2>
+            <form id="quiz-form">
+                <div class="questoes">
+                    <p>1. Qual destes elementos costuma denunciar um vídeo deepfake?</p>
+                    
+                    <label>
+                        <input type="radio" name="pergunta1" value="correta" required>
+                        Piscadas de olhos não naturais ou falhas nas bordas do rosto.
+                    </label>
+                    
+                    <label>
+                        <input type="radio" name="pergunta1" value="errada">
+                        A resolução do vídeo estar em alta definição (1080p ou 4K).
+                    </label>
+                </div>
+                <button type="submit">Verificar Resposta</button>
+            </form>
+            <div id="quiz-resultado" class="hidden"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Projeto de Cidadania Digital. Desenvolvido para fins educacionais.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
