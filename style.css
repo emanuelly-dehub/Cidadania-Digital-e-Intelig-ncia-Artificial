@@ -1,22 +1,24 @@
-/* Cores do Projeto e Suporte ao Modo Escuro */
+/* Paleta de Cores Avançada e Identidade Visual */
 :root {
-    --bg-global: #f8fafc;
+    --bg-global: #f1f5f9;
     --bg-card: #ffffff;
     --texto-principal: #0f172a;
-    --texto-secundario: #475569;
-    --cor-primaria: #2563eb;
-    --cor-sucesso: #10b981;
-    --cor-erro: #ef4444;
-    --borda: #e2e8f0;
+    --texto-secundario: #334155;
+    --cor-primaria: #1e40af; /* Azul Escuro Tecnológico */
+    --cor-detalhe: #3b82f6; /* Azul Elétrico */
+    --cor-sucesso: #059669; /* Verde Seguro */
+    --cor-erro: #dc2626; /* Vermelho Alerta */
+    --borda: #cbd5e1;
 }
 
 [data-theme="dark"] {
-    --bg-global: #0f172a;
-    --bg-card: #1e293b;
+    --bg-global: #020617; /* Fundo Cibernético Ultra Escuro */
+    --bg-card: #0f172a;
     --texto-principal: #f8fafc;
     --texto-secundario: #94a3b8;
-    --cor-primaria: #3b82f6;
-    --borda: #334155;
+    --cor-primaria: #38bdf8; /* Ciano Neon */
+    --cor-detalhe: #0ea5e9;
+    --borda: #1e293b;
 }
 
 * {
@@ -33,11 +35,11 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Flexbox no Header */
+/* Header estilizado com Flexbox */
 header {
     background-color: var(--bg-card);
-    border-bottom: 1px solid var(--borda);
-    padding: 1.5rem 0;
+    border-bottom: 3px solid var(--cor-primaria);
+    padding: 1.75rem 0;
 }
 
 .header-container {
@@ -50,121 +52,141 @@ header {
 }
 
 header h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--cor-primaria);
 }
 
 header p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--texto-secundario);
 }
 
-/* Conteúdo Principal */
+/* Estruturação de Seções */
 main {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 2.5rem auto;
     padding: 0 1.5rem;
 }
 
 section {
     background-color: var(--bg-card);
     border: 1px solid var(--borda);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    padding: 1.75rem;
+    margin-bottom: 1.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Classe de Destaque Visual */
+.destaque-azul {
+    border-left: 5px solid var(--cor-detalhe);
 }
 
 section h2 {
     color: var(--cor-primaria);
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem;
+    margin-bottom: 0.85rem;
+    font-size: 1.3rem;
+}
+
+p {
+    color: var(--texto-secundario);
+    margin-bottom: 0.5rem;
 }
 
 ul {
-    margin-left: 1.25rem;
-}
-
-ul li {
-    margin-bottom: 0.5rem;
+    margin-left: 1.5rem;
     color: var(--texto-secundario);
 }
 
-/* Formulário e Inputs */
+ul li {
+    margin-bottom: 0.4rem;
+}
+
+/* Estilização Interativa do Form/Quiz */
+.pergunta {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
 .opcao-grupo {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
 }
 
 label {
     display: block;
-    padding: 0.75rem;
+    padding: 0.85rem;
     border: 1px solid var(--borda);
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    background-color: rgba(0, 0, 0, 0.01);
+    transition: all 0.2s ease;
 }
 
 label:hover {
-    background-color: rgba(37, 99, 235, 0.05);
+    background-color: rgba(59, 130, 246, 0.08);
+    border-color: var(--cor-primaria);
 }
 
+/* Botões com efeito Hover Suave */
 button {
     background-color: var(--cor-primaria);
     color: #ffffff;
     border: none;
-    padding: 0.6rem 1.25rem;
-    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
     font-weight: 600;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: transform 0.1s ease, opacity 0.2s ease;
 }
 
 button:hover {
     opacity: 0.9;
+    transform: translateY(-1px);
 }
 
 #toggle-dark-mode {
     background-color: transparent;
     color: var(--texto-principal);
-    border: 1px solid var(--borda);
+    border: 2px solid var(--cor-primaria);
 }
 
-/* Classes JavaScript */
+/* Classes dinâmicas injetadas pelo JavaScript */
 .hidden {
     display: none !important;
 }
 
 #quiz-resultado {
-    margin-top: 1rem;
-    padding: 0.75rem;
-    border-radius: 6px;
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border-radius: 8px;
     font-weight: 600;
 }
 
 .resultado-sucesso {
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: rgba(5, 150, 105, 0.15);
     color: var(--cor-sucesso);
     border: 1px solid var(--cor-sucesso);
 }
 
 .resultado-erro {
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: rgba(220, 38, 38, 0.15);
     color: var(--cor-erro);
     border: 1px solid var(--cor-erro);
 }
 
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 1.5rem;
     color: var(--texto-secundario);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
-/* Responsividade Básica */
+/* Responsividade Mobile */
 @media (max-width: 600px) {
     .header-container {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 1.25rem;
     }
 }
