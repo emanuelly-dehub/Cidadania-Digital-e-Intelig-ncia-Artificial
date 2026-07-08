@@ -1,11 +1,11 @@
-// Aguarda a árvore do HTML carregar completamente para não dar erro de leitura
+// Aguarda a árvore do HTML carregar por completo. Isso blinda o site contra travamentos.
 document.addEventListener('DOMContentLoaded', () => {
     
     const btnTema = document.getElementById('toggle-dark-mode');
     const formQuiz = document.getElementById('quiz-form');
     const containerResultado = document.getElementById('quiz-resultado');
 
-    // 1. Modo Escuro
+    // 1. Alternador de Tema (Modo Escuro) sem erros na consola
     if (btnTema) {
         btnTema.addEventListener('click', () => {
             const isDark = document.body.getAttribute('data-theme') === 'dark';
@@ -17,15 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Validador do Quiz
-    if (formQuiz) {
+    // 2. Validador estável para o formulário do Quiz
+    if (formQuiz && containerResultado) {
         formQuiz.addEventListener('submit', (evento) => {
-            evento.preventDefault();
+            evento.preventDefault(); // Bloqueia o comportamento de recarregar a tela em branco
 
             const dados = new FormData(formQuiz);
             const respostaUsuario = dados.get('resposta');
 
-            // Limpa mensagens anteriores
+            // Reseta estilos antigos antes de injetar os novos
             containerResultado.className = 'hidden';
 
             let mensagemInfo = "";
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 classeEstilo = "resultado-erro";
             }
 
-            // Mostra o resultado na tela de forma dinâmica
+            // Altera dinamicamente o DOM sem quebras
             containerResultado.textContent = mensagemInfo;
             containerResultado.classList.add(classeEstilo);
             containerResultado.classList.remove('hidden');
