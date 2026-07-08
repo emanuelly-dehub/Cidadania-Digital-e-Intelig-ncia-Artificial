@@ -4,19 +4,19 @@
     --bg-card: #ffffff;
     --texto-principal: #0f172a;
     --texto-secundario: #334155;
-    --cor-primaria: #1e40af; /* Azul Escuro Tecnológico */
-    --cor-detalhe: #3b82f6; /* Azul Elétrico */
-    --cor-sucesso: #059669; /* Verde Seguro */
-    --cor-erro: #dc2626; /* Vermelho Alerta */
+    --cor-primaria: #1e40af;
+    --cor-detalhe: #3b82f6;
+    --cor-sucesso: #059669;
+    --cor-erro: #dc2626;
     --borda: #cbd5e1;
 }
 
 [data-theme="dark"] {
-    --bg-global: #020617; /* Fundo Cibernético Ultra Escuro */
+    --bg-global: #020617;
     --bg-card: #0f172a;
     --texto-principal: #f8fafc;
     --texto-secundario: #94a3b8;
-    --cor-primaria: #38bdf8; /* Ciano Neon */
+    --cor-primaria: #38bdf8;
     --cor-detalhe: #0ea5e9;
     --borda: #1e293b;
 }
@@ -35,7 +35,7 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Header estilizado com Flexbox */
+/* Header estruturado com Flexbox */
 header {
     background-color: var(--bg-card);
     border-bottom: 3px solid var(--cor-primaria);
@@ -77,7 +77,6 @@ section {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-/* Classe de Destaque Visual */
 .destaque-azul {
     border-left: 5px solid var(--cor-detalhe);
 }
@@ -96,10 +95,20 @@ p {
 ul {
     margin-left: 1.5rem;
     color: var(--texto-secundario);
+    margin-bottom: 0.5rem;
 }
 
 ul li {
     margin-bottom: 0.4rem;
+}
+
+.lista-guia {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.lista-guia li {
+    margin-bottom: 0.5rem;
 }
 
 /* Estilização Interativa do Form/Quiz */
@@ -112,8 +121,10 @@ ul li {
     margin-bottom: 0.85rem;
 }
 
-label {
-    display: block;
+.label-opcao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 0.85rem;
     border: 1px solid var(--borda);
     border-radius: 8px;
@@ -122,7 +133,7 @@ label {
     transition: all 0.2s ease;
 }
 
-label:hover {
+.label-opcao:hover {
     background-color: rgba(59, 130, 246, 0.08);
     border-color: var(--cor-primaria);
 }
